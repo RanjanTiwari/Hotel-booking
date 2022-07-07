@@ -2,7 +2,6 @@ import './App.css';
 import {
   Routes,
   Route,
-  Link,
   BrowserRouter
 } from "react-router-dom";
 
