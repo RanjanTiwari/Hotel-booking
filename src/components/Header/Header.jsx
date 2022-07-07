@@ -15,7 +15,7 @@ import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { format } from "date-fns";
 
-export default function Header() {
+export default function Header({type}) {
   const [date, setDate] = useState([
     {
       startDate: new Date(),
@@ -42,7 +42,7 @@ export default function Header() {
   };
   return (
     <div className="header">
-      <div className="headerContainer">
+      <div className={type === "list" ? "headerContainer listMode" : "headerContainer"}>
         <div className="headerList">
           <div className="headerListItem active">
             <FontAwesomeIcon icon={faBed} />
@@ -65,6 +65,8 @@ export default function Header() {
             <span>Airport taxis</span>
           </div>
         </div>
+        { type !== "list" &&
+          <>
         <h1 className="headerTitle">A lifetime of discounts? it's Genius.</h1>
         <p className="headerDesc">
           Get rewarded for your travels – unlock instant savings of 10% or more
@@ -169,6 +171,8 @@ export default function Header() {
           </div>
           <button className="headerBtn">Search</button>
         </div>
+        </>
+}
       </div>
     </div>
   );
